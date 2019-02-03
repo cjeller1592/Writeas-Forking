@@ -2,9 +2,13 @@ import writeas
 
 
 def forkCPost(alias, slug):
+    
+    # TODO: Find a way to extract arguments from a post url instead of feeding in each argument individually
 
     c = writeas.NewClient()
-    c.setToken('e88e757a-d2b3-4916-5743-5c7d18ab467d')
+    c.setToken('0000-0000-0000-0000-000000000000')
+    
+    # TODO: Make authentication cleaner/simpler...unique login function? Classes?
 
     try:
         p = c.retrieveCPost(alias, slug)
@@ -22,10 +26,15 @@ def forkCPost(alias, slug):
 
     return url
 
+    # TODO: Redirect to url in web app (Flask)
+
+
 def forkPost(id):
 
     c = writeas.NewClient()
-    c.setToken('e88e757a-d2b3-4916-5743-5c7d18ab467d')
+    c.setToken('0000-0000-0000-0000-000000000000')
+    
+    # TODO: Make authentication cleaner/simpler...unique login function? Classes?
 
     try:
         p = c.retrievePost(id)
@@ -42,3 +51,5 @@ def forkPost(id):
         return e
 
     return url
+
+    # TODO: Redirect to url in web app (Flask)
