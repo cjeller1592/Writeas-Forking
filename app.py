@@ -34,7 +34,7 @@ def start():
             return redirect(request.url)
 
         flash('You successfully logged in! You can start using the app!')
-        return redirect(url_for('home'))
+        return redirect(url_for('fork'))
 
     return render_template('login.html', form=form)
 
