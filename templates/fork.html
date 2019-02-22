@@ -1,0 +1,179 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Fork &mdash; Write.as Extensions</title>
+<meta name="description" content="Log in to access your blogs, published posts, and linked accounts.">
+<meta itemprop="description" content="Log in to access your blogs, published posts, and linked accounts.">
+<style>input{margin-bottom:0.5em;}</style>
+
+		<link rel="stylesheet" type="text/css" href="https://write.as/css/write.c079fd8b4e7c64af5a97c.css" />
+		<link rel="shortcut icon" href="https://write.as/favicon.ico" />
+		<link rel="icon" type="image/png" href="https://write.as/img/favicon-chrome.png" sizes="192x192">
+		<link rel="manifest" href="https://write.as/manifest.json">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#888888" />
+
+		<meta name="application-name" content="Write.as">
+		<meta name="application-url" content="https://write.as">
+		<meta name="twitter:site" content="@writeas__">
+		<meta name="twitter:app:name:googleplay" content="Write.as">
+		<meta name="twitter:app:id:googleplay" content="com.abunchtell.writeas">
+		<meta name="twitter:app:name:iphone" content="Write.as">
+		<meta name="twitter:app:id:iphone" content="1000755153">
+		<meta name="twitter:app:name:ipad" content="Write.as">
+		<meta name="twitter:app:id:ipad" content="1000755153">
+		<meta property="og:site_name" content="Write.as" />
+		<meta property="al:android:app_name" content="Write.as">
+		<meta property="al:android:package" content="com.abunchtell.writeas">
+		<meta property="al:ios:app_store_id" content="1000755153" />
+		<meta property="al:ios:app_name" content="Write.as" />
+	</head>
+	<body>
+		<div id="overlay"></div>
+		<header>
+			<h1><a href="/">write.as extensions</a></h1>
+
+		</header>
+
+		<div id="official-writing">
+
+		<nav id="top-nav">
+			<a class="simple-cta if-room room-1" href="/wikipedia">Wikipedia</a>
+			<a class="simple-cta if-room room-2" href="/arena">Are.na</a>
+			<a class="simple-cta" href="/youtube">Youtube</a>
+		</nav>
+<div class="tight content-container">
+	<h1>Fork with Write.as</h1>
+
+	<p style="margin-bottom:3em">Put in the alias and slug of a Write.as post to fork it to your account</p>
+
+  <form action="" method="post" target="_blank" autocomplete="off" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.alias.label }}<br>
+            {{ form.alias(size=32) }}
+        </p>
+        <p>
+            {{ form.slug.label }}<br>
+            {{ form.slug(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+				<p class=flashes style="margin-bottom:3em">{{ message }}</p>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+
+
+<script type="text/javascript">
+function disableSubmit() {
+	var $btn = document.getElementById("btn-login");
+	$btn.value = "Logging in...";
+	$btn.disabled = true;
+	try { _paq.push(['trackEvent', 'User', 'log in', 'form: password']); } catch(e) {}
+}
+</script>
+
+		</div>
+
+
+
+		<footer class="contain-me">
+			<hr />
+
+			<div class="marketing-section">
+				<div class="clearfix blurbs">
+					<div class="fourth">
+						<h3><a class="home" href="/">write.as</a></h3>
+						<ul>
+							<li><a href="/about">about</a></li>
+							<li><a href="/pricing">pricing</a></li>
+							<li><a href="/apps">apps</a></li>
+							<li><a href="https://guides.write.as/#getting-started">getting started</a></li>
+							<li><a href="https://developers.write.as/" title="Build on Write.as with our open developer API.">developers</a></li>
+							<li><a href="/privacy">privacy</a></li>
+						</ul>
+					</div>
+					<div class="fourth">
+						<h3>community</h3>
+						<ul>
+							<li><a href="https://read.write.as" title="Our community of writers and everything they've publicly written.">read write.as</a></li>
+							<li><a href="https://discuss.write.as">community forum</a></li>
+							<li><a href="https://writing.exchange" title="Our microblogging community and Mastodon instance.">writing exchange</a></li>
+							<li><a href="/open-source">open source</a></li>
+						</ul>
+					</div>
+					<div class="fourth">
+						<h3>our team</h3>
+						<ul>
+							<li><a href="/blog/">news</a></li>
+							<li><a href="/principles">our principles</a></li>
+							<li><a href="/matt/">matt</a></li>
+							<li><a href="/contact">contact</a></li>
+							<li class="icons">
+								<a href="https://writing.exchange/@write_as" rel="me"><img src="https://write.as/img/mastodon.0ed802a.svg" alt="@write_as on Writing Exchange / Mastodon" /></a>
+								<a href="https://twitter.com/writeas__" rel="me"><img src="https://write.as/img/twitter.svg" alt="@writeas__ on Twitter" /></a>
+								<a href="https://www.instagram.com/write.as/" rel="me"><img src="https://write.as/img/instagram.svg" alt="@write.as on Instagram" /></a>
+								<a href="https://www.facebook.com/writeasanyone/" rel="me"><img src="https://write.as/img/facebook.svg" alt="Write.as on Facebook" /></a>
+								<a href="https://plus.google.com/+WriteAs" rel="me"><img src="https://write.as/img/googleplus.svg" alt="+WriteAs on Google+" /></a>
+							</li>
+						</ul>
+					</div>
+					<div class="fourth">
+						<h3>spread the word</h3>
+						<ul>
+							<li><a href="/brand">brand and logo</a></li>
+							<li><a target="writeas-sm" href="/stickers">get some stickers</a></li>
+							<li><a target="writeas-ph" href="https://www.producthunt.com/posts/write-as">upvote on Product Hunt</a></li>
+							<li><a target="writeas-at" href="http://alternativeto.net/software/write-as/">like on alternativeTo</a></li>
+							<li><a target="writeas-tw" href="https://twitter.com/intent/tweet?text=Check%20out%20https%3A%2F%2FWrite.as%20%E2%80%94%20publish%20a%20thought%20in%20seconds.%20%40writeas__">share on Twitter</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</footer>
+
+
+		<noscript><p><img src="https://analytics.write.as/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+
+		<script type="text/javascript">
+		try {
+		  var _paq = _paq || [];
+
+		  _paq.push(['trackPageView']);
+		  _paq.push(['enableLinkTracking']);
+		  _paq.push(['enableHeartBeatTimer']);
+		  (function() {
+			var u="https://analytics.write.as/";
+			_paq.push(['setTrackerUrl', u+'piwik.php']);
+			_paq.push(['setSiteId', 1]);
+			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+			g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+		  })();
+		} catch (e) {   }
+		try {
+		  WebFontConfig = {
+			custom: { families: [ 'Lora:400,700:latin' ], urls: [ '/css/fonts.4ce1882.css' ] }
+		  };
+		  (function() {
+			var wf = document.createElement('script');
+			wf.src = '/js/webfont.js';
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+			})();
+		} catch (e) {   }
+
+
+
+		</script>
+
+	</body>
+</html>
