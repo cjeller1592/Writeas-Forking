@@ -2,10 +2,9 @@ from flask import Flask, flash, request, render_template, redirect, url_for
 
 from auth import loginUser
 
-from utils import forkCPost, getWiki, block2WA, yt2W
-from forms import login, Fork, Wiki, Arena, Youtube
+from utils import forkCPost
+from forms import login, Fork
 import os
-import wikipedia
 
 
 app = Flask(__name__)
@@ -20,7 +19,7 @@ def home():
 
 @app.route('/login', methods=['GET', 'POST'])
 def start():
-    global token # Setting token the stupid way!
+    global token # Setting token the stupid way! Use this app locally...
 
     form = login()
     error = None
@@ -30,9 +29,8 @@ def start():
         password = request.form['password']
         token = loginUser(user, password)
 
-        if token == None:
+        if token == None: # catches a bs password or username
             flash('Woops! Try again!')
-#            return redirect(url_for('start'))
             return redirect(request.url)
 
         flash('You successfully logged in! You can start using the app!')
