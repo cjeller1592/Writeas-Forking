@@ -46,8 +46,19 @@ def fork():
         try:
             alias = request.form['alias']
             slug = request.form['slug']
+   
+            if collection: # checks if collection field is filled to fork post over to collection
+                url = forkCPost(alias, slug, collection, token)
 
-            url = forkCPost(alias, slug, token)
+                if url == None: # catches if collection, alias, or slug are off in request
+                    flash('Hmm something went wrong. Check the alias,slug, or collection you are forking to!')
+                    return redirect(url_for('fork'))
+
+                return redirect(url)
+
+            # If no collection, fork post over as an anonymous post
+            url = forkPost(alias, slug, token)
+
 
             if url == None: # catches if alias/slug are off in request
                 flash('Hmm something went wrong. Check the alias and or slug!')
