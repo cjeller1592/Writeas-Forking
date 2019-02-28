@@ -1,14 +1,11 @@
 import writeas
+# TODO: Make exception handling more robust other than returning None
 
-
-def forkCPost(alias, slug):
-    
-    # TODO: Find a way to extract arguments from a post url instead of feeding in each argument individually
+# Fork over as an annonymous post
+def forkPost(alias, slug, token):
 
     c = writeas.NewClient()
-    c.setToken('0000-0000-0000-0000-000000000000')
-    
-    # TODO: Make authentication cleaner/simpler...unique login function? Classes?
+    c.setToken(token)
 
     try:
         p = c.retrieveCPost(alias, slug)
@@ -20,36 +17,36 @@ def forkCPost(alias, slug):
 
         url = 'https://write.as/' + 'edit/%s' % id
 
+# If run into an error, like the post not existing, we return None
+# This None will be handled on the app level
+
     except Exception as e:
-        print('Exception in forkCPost: %s' % e)
-        return e
+        return None
+  
 
     return url
 
-    # TODO: Redirect to url in web app (Flask)
-
-
-def forkPost(id):
+# Fork over as a collection post
+def forkCPost(alias, slug, collection, token):
 
     c = writeas.NewClient()
-    c.setToken('0000-0000-0000-0000-000000000000')
-    
-    # TODO: Make authentication cleaner/simpler...unique login function? Classes?
+    c.setToken(token)
 
     try:
-        p = c.retrievePost(id)
+        p = c.retrieveCPost(alias, slug)
         title = p['title']
         body = p['body']
 
-        fp = c.createPost(body, title)
-        id = fp['id']
+        fp = c.createCPost(collection, body, title)
+        title = p['title']
+        body = p['body']
 
-        url = 'https://write.as/' + 'edit/%s' % id
+        slug = fp['slug']
+
+        url = 'https://write.as/' + '%s/%s/edit' % (collection, slug)
 
     except Exception as e:
-        print('Exception in forkCPost: %s' % e)
-        return e
+        return None
 
     return url
 
-    # TODO: Redirect to url in web app (Flask)
